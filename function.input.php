@@ -24,6 +24,7 @@
  * 	options - array - for select type
  * 	width
  * 	selected (for select only)
+ * 	label - generates a label for the field
  * 
  *  - This fills in the field with the value from post global var. If you want to sanitize this first, change $_POST ti _tpl_vars[<CLEANED ARRAY>]
  *  - If no posted information available, it uses the 'user' array to fill in values specific to the user logged in.
