@@ -25,9 +25,11 @@
  * 	width
  * 	selected (for select only)
  * 	label - generates a label for the field
+ * 	readonly - if set, field cannot take user input
  * 
  *  - This fills in the field with the value from post global var. If you want to sanitize this first, change $_POST ti _tpl_vars[<CLEANED ARRAY>]
  *  - If no posted information available, it uses the 'user' array to fill in values specific to the user logged in.
+ *  - If View is set by smarty, then the fields are readonly
  */
 function smarty_function_input($params, &$smarty)
 {
