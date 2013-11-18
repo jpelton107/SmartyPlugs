@@ -1,5 +1,18 @@
 <?php
-/*
+/**
+ * Smarty plugin
+ * @package Smarty
+ * @subpackage plugins
+ */
+
+
+/**
+ * Smarty input function plugin
+ *
+ * Type:     function<br>
+ * Name:     phone_format<br>
+ * Purpose:  generate HTML for forms
+ * @author   Joel Pelton
  * params:
  * 	type - text, password, checkbox, radio, select, textarea, submit, number, phone, email, hidden
  * 	name - name of the field
@@ -11,7 +24,9 @@
  * 	options - array - for select type
  * 	width
  * 	selected (for select only)
- *
+ * 
+ *  - This fills in the field with the value from post global var. If you want to sanitize this first, change $_POST ti _tpl_vars[<CLEANED ARRAY>]
+ *  - If no posted information available, it uses the 'user' array to fill in values specific to the user logged in.
  */
 function smarty_function_input($params, &$smarty)
 {
@@ -20,7 +35,7 @@ function smarty_function_input($params, &$smarty)
 	$id = !$params['id'] ? $params['name'] : $params['id'];
 	$name = $params['name'];
 	$max = !$params['max'] ? '64' : $params['max'];
-	$preFilled = $smarty->_tpl_vars['preFilled'];
+	$preFilled = $_POST;
 	$user = $smarty->_tpl_vars['user'];
 	$label = $params['label'];
 	$placeholder =$params['placeholder'];
